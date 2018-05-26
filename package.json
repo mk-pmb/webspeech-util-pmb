@@ -1,0 +1,25 @@
+{ "name": "webspeech-util-pmb",
+  "version": "0.0.1",
+  "description": "Tools for necromancing Logox WebSpeech 4 in Wine on Ubuntu",
+  "keywords": [ "Logox", "WebSpeech" ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/webspeech-util-pmb/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/webspeech-util-pmb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/webspeech-util-pmb/issues"
+  },
+  "contributors": [],
+
+  "private": false, "license": "ISC",
+
+  "dependencies": {},
+  "devDependencies": {
+  },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
