@@ -1,0 +1,80 @@
+﻿@charset "UTF-8";
+/* -*- coding: UTF-8, tab-width: 2 -*- */
+/*
+  (C) 2018 mk-pmb.
+  written from scratch, NOT based on Logox documentation.
+*/
+
+body, table, tr, td, pre {
+  font-size: 16px;
+  color: black;
+  background-color: ivory;
+}
+
+a[href] { text-decoration: none; color: blue; }
+a[href]:hover { color: green; }
+
+body > br + a[target="_parent"] + p a[href] b {
+  display: block;
+  font-weight: normal;
+  margin-top: 0.5em;
+}
+
+pre { color: black; background-color: gainsboro; }
+blockquote { color: black; background-color: palegreen; }
+
+pre, blockquote {
+  padding: 0.2em 0.5em;
+  margin: 1em 3em;
+}
+pre p, blockquote p { margin: 0; }
+
+pre, blockquote,
+table, td, th { border: 1px solid dimgray; }
+
+table, td, th {
+  border-collapse: collapse;
+  text-align: left;
+  vertical-align: top;
+}
+td, th { padding: 2px 5px; }
+
+h1 a.goto-sect { color: transparent; }
+h1:hover a.goto-sect { color: dimgray; }
+
+nav#ocx-toc {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: ivory;
+  border: 2px solid grey;
+  border-top-width: 0;
+  border-right-width: 0;
+  padding: 0.2em 0.5em;
+  overflow: auto;
+}
+nav#ocx-toc:hover { bottom: 0; }
+nav#ocx-toc:not(:hover):before { content: "ToC"; }
+nav#ocx-toc:not(:hover) chapter { display: none; }
+nav#ocx-toc chapter {
+  margin: 1em;
+  padding: 0.5em;
+}
+nav#ocx-toc chapter h3 {
+  margin: 0;
+  font: inherit; font-weight: bold;
+  white-space: nowrap; overflow: hidden; max-width: 15em;
+}
+nav#ocx-toc chapter menu {
+  padding: 0; padding-left: 1em;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+.scroll { }
