@@ -31,6 +31,8 @@ function download_all () {
     clean_one_orig "$ITEM" || return $?
   done
 
+  ./dll_funcs.2csharp.sh || return $?
+
   return 0
 }
 
