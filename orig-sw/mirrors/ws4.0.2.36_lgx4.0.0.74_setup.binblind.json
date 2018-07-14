@@ -1,0 +1,26 @@
+﻿{ "file": "Webspeech4.exe", "size": 6201080,
+  "product": "WebSpeech 4",
+  "ws4version": [4, 0, 2, 36],
+  "ws4engine": [4, 0, 0, 74],
+  "component": "setup",
+  "cksum": {
+    "gnu_cksum": 3144425416,
+    "md5": "c8bc9627a23f75d0a9549848414bac3a",
+    "sha1": "b8517e9aaa48dc7da04e028f80fd98531a5a46b1",
+    "sha256": "2f9ea8076155a7ea45afe5841da19352b4a47197f355f4932a03c1cf5b28acec",
+    "sha512": "4ea3cd8a436faa7ee1964036e062404031a9b442a92af6feb2bd222d2a6fb47b2666ca25155a7e2f8aca97e0f9b770ef5721c790b3311d0cf7b225365a36c492"
+  },
+  "mirrors": [
+    { "url": "http://web.archive.org/web/20031011101500if_/http://www.gdataspace.de/WebSpeech4.exe",
+      "method": "wget",
+      "alive_ymd": 180619,
+      "via": [] },
+    { "url": "http://web.archive.org/web/20160709111405if_/http://www.zeichen-7.de/home/links/Webspeech4.exe",
+      "method": "wget",
+      "alive_ymd": 180619,
+      "via": [
+        "http://web.archive.org/web/20170101195618/http://binblind.de/software/Blinden-Sprecher/index.html"
+      ] }
+  ],
+  "autoinstall": { "how": "cli_args", "args": [ "/silent" ] }
+}

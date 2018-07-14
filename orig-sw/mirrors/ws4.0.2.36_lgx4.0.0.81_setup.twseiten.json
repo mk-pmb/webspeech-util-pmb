@@ -1,0 +1,33 @@
+﻿{ "file": "WebSpeech4.exe", "size": 6331338,
+  "product": "WebSpeech 4",
+  "ws4version": [4, 0, 2, 36],
+  "ws4engine": [4, 0, 0, 81],
+  "component": "setup",
+  "cksum": {
+    "gnu_cksum": 3301767800,
+    "md5": "69aca41bd7a4b0991b4437e3464de22b",
+    "sha1": "152843cf04d77f2713aae6401172cca5d4cd70a1",
+    "sha256": "152d64c815c1c45aec244c5737385b881f689f662cb0dd03de4f679acf70409e",
+    "sha512": "620bdfc23fba1e2840ab5187d0702473d24e41971066a8401b52d9a48f88a9401e70a43ed63b1218b6e809f870b2ac6a09f4a1041802b534c03c842005a8bbc7"
+  },
+  "mirrors": [
+    { "url": "http://web.archive.org/web/20180619151810if_/http://www.twseiten.de/down/LogoxWebSpeech4_PluginInternetExplorer_4_0_2_35.ZIP",
+      "url:hint": "Yes, the filename claims a slightly earlier version than is contained.",
+      "alive_ymd": 180619,
+      "method": "wget+unpack",
+      "unpack": [
+        { "method": "unzip",
+          "pack": { "size": 6228677, "gnu_cksum": 687509608,
+            "md5": "5eb3c13b41d0448d276eca4e9060662d",
+            "sha1": "d394e34f1df72908163b685f21392473296500ee",
+            "sha256": "06d52e47da893e800584dc19e196bc381ba2b33f49c4715e239fe0dceaafcd59",
+            "sha512": "2117e11fc925704c1218741cef6d57c1dc8fc03caf3506fc23f2d08beb9ee5a4592a9c9c108e3e68a1a74c996b77c3753b35a4818c412da0ee05e35f976df8c4"
+          },
+          "files": [ "WebSpeech4.exe" ]
+        } ],
+      "via": [
+        "http://web.archive.org/web/20170317185053/http://www.twseiten.de/"
+      ] }
+  ],
+  "autoinstall": { "how": "cli_args", "args": [ "/silent" ] }
+}

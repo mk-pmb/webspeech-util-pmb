@@ -1,0 +1,36 @@
+﻿{ "file": "logox4demo.exe", "size": 4811727,
+  "product": "Logox 4 Demo",
+  "component": "setup",
+  "cksum": {
+    "gnu_cksum": "1342782523",
+    "md5": "c1e0a82ce10e1a02af4f359f1a1b8f18",
+    "sha1": "32672b809d0c3159445cf4a158d57264c8025752",
+    "sha256": "20ad0396cedc456972e00abc1625a63006f4c5f0d759d2a61495f48c683f01c6",
+    "sha512": "9574e0235a6ccec4331ef77ea5553ffe2993c859ce2508c8d21fc5ddb3862eedaa32879bfc43b5509a155db34e877bccdc1d83a399c4cf232f17b5a71be129ed"
+  },
+  "mirrors": [
+    { "url": "http://web.archive.org/web/20180619123930if_/http://download4.freefiles-18.de/software/s37274/d11954/37274/1/logox4demo.exe",
+      "alive_ymd": 180619,
+      "method": "wget",
+      "via": [
+        "http://web.archive.org/web/20180619123938/https://www.freeware.de/download/logox/",
+        "http://web.archive.org/web/20180619124030/https://www.freeware.de/dl3/logox/dll3/37274/",
+        "http://web.archive.org/web/20180619124900/https://www.freeware.de/?dl=37274"
+      ] }
+
+  ],
+  "autoinstall": { "how": "cli_args", "args": [ "/silent" ] },
+  "restrictions": {
+    "input-maxlen": {
+      "descr": "Maximum text length for user-supplied texts typed or pasted into the textbox.",
+      "type": "number",
+      "value": 200,
+      "from": [
+        { "file": "c:/Program Files/Common Files/Logox.4.0/LogoxDemo.exe",
+          "offset": 36799,
+          "bytes": "\u00C8\u0000\u0000\u0000",
+          "previousBytes": "\u00E8f\u0016\u0000\u0000h" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+﻿{ "file": "WS20S4.exe", "size": 7400960,
+  "product": "Logox WebSpeech 2 (4 voices)",
+  "component": "setup",
+  "cksum": {
+    "gnu_cksum": 2249380574,
+    "md5": "02f136b645c97f36aadad5943f55a180",
+    "sha1": "914c6e95943ce4974d53f6f52f2c1902c37ba6c9",
+    "sha256": "d3375dd75f9d6dbd487e815fbb916d789a571ee5172ca54123797ae35a0a069e",
+    "sha512": "667c3668d3b6999188f799456dfd5d10f55e44f2ca4aee909fa95ee95d2268c02969f6c8f73946816f781fb40f8db1628dcb93541a0fe6a91f5b1a7742d494c2"
+  },
+  "mirrors": [
+    { "url": "http://web.archive.org/web/20020203081250if_/http://www.gdataspace.de:80/download/WS20S4.exe",
+      "alive_ymd": 180619,
+      "method": "wget",
+      "via": [
+        "http://web.archive.org/web/20020204184910/http://www.webspeech.de:80/download.php3"
+      ] }
+  ],
+  "autoinstall": false
+}
