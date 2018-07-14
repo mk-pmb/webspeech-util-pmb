@@ -10,7 +10,7 @@ function dll_funcs2csharp () {
     using System.Text;
     using System.Runtime.InteropServices;
 
-    public class LogoxWebSpeech4Api {
+    public class Logox4SpeechApi {
     ' sed -re 's~^\s+~~'
     <clean/logoxdll.html "$FUNCNAME"_core | sed -re 's~^\s*\S~    &~'
     echo '}'

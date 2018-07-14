@@ -1,0 +1,44 @@
+.vol_db
+-6
+.speed_pr
+250
+
+.clear
+Hallo welt!
+.speak
+.sleep
+1
+.stop
+
+Nicht gut
+
+.clear
+Besser so
+.speak
+.sleep
+1
+.stop
+
+.font_alias
+lgx.de.silke
+.clear
+Z3Lk32xpY2hlINxtbOR1dGUga/ZkaWVydAo=
+.base64ansi
+.dump
+.speak
+.sleep
+1
+.stop
+
+.font_alias
+lgx.de.bill
+.clear
+Z3LDpMOfbGljaGUgw5xtbMOkdXRlIGvDtmRpZXJ0Cg==
+.base64utf8
+.dump
+.speak
+.sleep
+1
+.stop
+
+.quit
