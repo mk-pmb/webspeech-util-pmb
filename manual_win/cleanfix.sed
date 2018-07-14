@@ -20,16 +20,19 @@ s~ background="grafik/nav3\.gif"~~g
 s~(href=")logox-(styles.css")~\1../\2~
 
 # ===== Fix double-encoded HTML =====
-s~(\&)amp;(#[0-9]+)([^0-9;])~\1\2;\3~g
-s~(\&)amp;(([aeiou]uml|zslig|reg);)~\1\2~ig
-s~\&lt;(/?([A-Z]+|H[1-6]|sup)( (HREF|NAME)=[^<> \n]*|))\&gt;~<\1>~g
-# =====
+: fix_amps
+  s~(\&)(amp;)*(#[0-9]+)([^0-9;])~\1\3;\4~g
+  s~(\&)(amp;)+(([aeiou]uml|szlig|reg|quot);)~\1\3~ig
+t fix_amps
+s~(\&lt;|>)(/?([A-Z]+|H[1-6]|sup|p|br|$\
+  )( (HREF|NAME)=[^&<> \n]*|))(\&gt;|>)~<\a\2>~g
+s~<\a~<~g
 
 s~(<a[^<>]*>)(<h1[^<>]*>)([^<>]*)(</h1>)(</a>)~\2\1\3\5\4~g
 s~<h1><a name="([A-Za-z0-9_-]+)">([^<>]*)|$\
   ~<h1 id="\1">\2 <a class="goto-sect" href="#\1">\&para;~g
 
-/<h1 id="__aaaFunktionen_des_ActiveX_Controls">/{
+/<h1 id="__aaaFunktionen_des_(ActiveX_Controls|Logox_4_Servers)">/{
   s~<h3>([^<>]+)</h3>\s*<p>\s*(<menu compact>)|$\
     ~<chapter><h3>\1</h3>\n  \2~g
   s~(<p>\s*|)(</menu>)~\2</chapter>\n~g
@@ -38,5 +41,12 @@ s~<h1><a name="([A-Za-z0-9_-]+)">([^<>]*)|$\
   s~(<chapter><h3>)(Funktionen zu[rm]|Allgemeine?) ~\1~g
 }
 
+s~\s+(<br>)~\L\1\E~ig
+
+
+
+
+
+
 s~\s*\n[\r\n]*~\n~g
-s~\s+$~~
+s~\s*$~\n~
