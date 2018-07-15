@@ -1,11 +1,13 @@
 using System;
 using System.Threading;
+using System.Collections.Generic;
 using lgx = Logox4SpeechApi;
 using cpl = LogoxWebSpeech4Cpl;
 
 namespace Logox4CliSimple {
 
   class Program {
+    public static Queue<string> readLnInputQ = null;
     public static string inputBuffer = "";
     public const uint errNoSuchFont = 0xFFFFFFFF;
 
@@ -24,7 +26,8 @@ namespace Logox4CliSimple {
     }
 
     [STAThread]
-    static void Main() {
+    static void Main(string[] cliArgs) {
+      readLnInputQ = new Queue<string>(cliArgs);
       if (!lgx.LogoxInitialize()) { fail("init"); }
       sendLicense(getEnv("LOGOX_LICKEY"));
       lgx.LogoxNotifyModeLocal();
@@ -49,6 +52,7 @@ namespace Logox4CliSimple {
     }
 
     public static string readLn(string ifNull = "") {
+      if (readLnInputQ.Count > 0) { return readLnInputQ.Dequeue(); }
       string ln = Console.ReadLine();
       if (ln == null) { return ifNull; }
       return ln.TrimEnd();
@@ -124,6 +128,8 @@ namespace Logox4CliSimple {
       if (cmd == "base64utf8") { return convert_base64utf8(); }
       if (cmd == "base64ansi") { return convert_base64ansi(); }
       if (cmd == "font_alias") { return setFontByAlias(); }
+      if (cmd == "stats") { return showStats(); }
+      if (cmd == "fonts") { return listFonts(); }
       double slider = getSliderByName(cmd);
       if (!double.IsNaN(slider)) { return cmdSlider(cmd, slider); }
       return sayNay("unknown_command " + cmd);
@@ -194,6 +200,45 @@ namespace Logox4CliSimple {
       lgx.LogoxSetLocalFont(nFont);
       return sayOk("font_selected");
     }
+
+    public static byte[] splitLong(long n) {
+      return new byte[]{
+        (byte)((n >> 24) & 0xFF),
+        (byte)((n >> 16) & 0xFF),
+        (byte)((n >> 8) & 0xFF),
+        (byte)(n & 0xFF),
+      };
+    }
+
+    public static bool showStats() {
+      Console.WriteLine(":version: {0}",
+        String.Join(".", splitLong(lgx.LogoxDLLVersion())));
+      Console.WriteLine(":nFonts: {0}", lgx.LogoxGetNumberOfFonts());
+      return sayOk("end");
+    }
+
+    public static bool listFonts() {
+      uint nFonts = lgx.LogoxGetNumberOfFonts();
+      for (uint idx = 0; idx < nFonts; idx += 1) {
+        Console.WriteLine(":{0}.name: {1}", idx,
+          lgx.LogoxGetFontName(idx));
+        Console.WriteLine(":{0}.uuid: {1}", idx,
+          lgx.LogoxGetFontUUID(idx));
+        Console.WriteLine(":{0}.alias: {1}", idx,
+          lgx.LogoxGetFontAlias(idx));
+        Console.WriteLine(":{0}.date: {1}", idx,
+          lgx.LogoxGetFontDate(idx));
+        Console.WriteLine(":{0}.version: {1}", idx,
+          lgx.LogoxGetFontVersion(idx));
+        Console.WriteLine(":{0}.flags: 0x{1}", idx,
+          Convert.ToString(lgx.LogoxGetFontFlags(idx), 16).PadLeft(8, '0'));
+      }
+      return sayOk("end");
+    }
+
+
+
+
 
 
 

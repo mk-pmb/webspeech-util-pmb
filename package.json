@@ -1,5 +1,5 @@
 { "name": "webspeech-util-pmb",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tools for necromancing Logox WebSpeech 4 in Wine on Ubuntu",
   "keywords": [ "Logox", "WebSpeech" ],
 

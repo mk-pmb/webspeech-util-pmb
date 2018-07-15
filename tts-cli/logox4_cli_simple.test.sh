@@ -5,6 +5,7 @@
 function wsrs_test () {
   export LANG{,UAGE}=en_US.UTF-8  # make error messages search engine-friendly
   local SELF="$(readlink -m "$BASH_SOURCE")"
+  local PROG="$(basename "$SELF" .test.sh)"
 
   local -A TTS
   source "$HOME"/.config/speech-util-pmb/tts-util.rc
@@ -20,7 +21,6 @@ function wsrs_test () {
   [ -f Logox4.dll ] || ln --symbolic --no-target-directory -- "$WINEPREFIX$(
     )/dosdevices/c:/Program Files/Common Files/Logox.4.0/Logox4.dll"
 
-  local PROG='logox_cli_simple'
   mcs "$PROG".cs lib/*.cs || return $?
   <"${SELF%.test.sh}.input.txt" wine "$PROG".exe || return $?
 

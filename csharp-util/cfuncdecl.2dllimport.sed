@@ -6,6 +6,7 @@ s~\s+~ ~g;s~^ ~~;s~ $~~
 
 s~^~\a~
 s~(\a\S+ )(WINAPI) ~<\2> \1~
+
 s~\a([A-Za-z0-9]+) ([A-Za-z0-9]+) ?\(~<returns:\1> <name:\2> (\a, ~
 s~\a, *void ?(\))~\a\1~
 : parse_args
@@ -40,7 +41,8 @@ s~<type:[ar]:(U)?INT_PTR>~\L\1int\E~g
 s~<type:r:(void)>~\L\1\E~ig
 s~<type:[ar]:(bool)>~\L\1\E~ig
 s~<type:[ar]:((u)(nsigned_|)|)(int|long)>~\L\2\Eint~ig
-s~<type:[ar]:(LPC?T?STR)>~string~ig
+s~<type:[ar]:(LPCT?STR)>~string~ig
+s~<type:[ar]:(LPT?STR)>~StringBuilder~ig
 s~<type:a:((unsigned_|)char_ptr)>~StringBuilder~ig
 
 s~<type:m:(bool)>~Bool~ig
@@ -50,7 +52,41 @@ s~<type:m:((unsigned_|)char_ptr)>~LPStr~ig
 
 s~ +<\r>~~g
 s~<name:(\S+)> ~\1~
-s~,?\s*\)$~);\n~
+s~,?\s*\)$~);~
+
+/\)\]\n +StringBuilder \S+,\n/{
+  s~\)\]\npublic static extern \S+ (\S+) ?\((\n.*\)\]\s+|$\
+    )StringBuilder (\S+),\s+\[param: [^\n]+\]\s+uint \S+\).*$|$\
+    ~&\npublic static string \1(<delMarshals>\2\
+    </delMarshals><commaSpace>uint maxLength = 4096) {\
+    StringBuilder \3 = new StringBuilder((int)maxLength);\
+    \1(<delTypes><delMarshals>\2\
+    </delMarshals></delTypes><commaSpace>\3, maxLength);\
+    return \3.ToString();\n}~
+
+  : getStr_cleanup
+    s~(<delMarshals>)\s*([^<>:]*)\[param:[^\n]+\]\n~\2\1~
+    s~\s*<delMarshals>\s*</delMarshals>~~
+    s~(<delTypes>)\s*[A-Za-z0-9_]+\s+([A-Za-z0-9_]+,?\s*)~\2\1~
+    s~\s*<delTypes>\s*</delTypes>~~
+  t getStr_cleanup
+  s~,<commaSpace>~, ~g
+  s~<commaSpace>~~g
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 s~\a~\n\n<!!>\n\n~g
+s~$~\n~
