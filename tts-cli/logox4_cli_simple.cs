@@ -28,10 +28,15 @@ namespace Logox4CliSimple {
     [STAThread]
     static void Main(string[] cliArgs) {
       readLnInputQ = new Queue<string>(cliArgs);
-      if (!lgx.LogoxInitialize()) { fail("init"); }
+      if (!lgx.LogoxInitialize()) { fail("logox_server_not_ready"); }
       sendLicense(getEnv("LOGOX_LICKEY"));
       lgx.LogoxNotifyModeLocal();
-      while (true) { cmdPrompt(); }
+      try {
+        while (true) { cmdPrompt(); }
+      } catch (Exception err) {
+        Console.Error.WriteLine("-ERR crash", err);
+        Environment.Exit(3);
+      }
     }
 
     static bool sendLicense(string licenseKey) {
