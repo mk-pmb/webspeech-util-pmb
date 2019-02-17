@@ -4,7 +4,7 @@ Logox 4 Demo App
 
 The Logox 4 Demo App setup ships with one voice (Bill),
 but when you install more voices (e.g. via the WebSpeech setup),
-it will able to detect and use them.
+it will be able to detect and use them.
 
 
 Features
