@@ -14,6 +14,11 @@ It's feasible for both.
 All voices installed by WebSpeech also work in the
 [Logox 4 Demo App](logox4demo.md).
 
+I also made a [CLI interface](../tts-cli/) that integrates well with
+[text-to-speech-util-pmb](https://github.com/mk-pmb/text-to-speech-util-pmb).
+I use that setup to run a TTS server where I can submit all kinds of
+announcements via network.
+
 
 
 Basics
