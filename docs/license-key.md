@@ -86,7 +86,7 @@ FAQ: WebSpeech license keys
   instance that is local to the thread that called `LogoxLicense()`.
   It seems that a thread can call `LogoxLicense()` as often as it wants,
   and as soon as a valid license key is supplied, the authorization sticks.
-  This means you can not undo the unlocking alter by just sending an invalid
+  This means you can not undo the unlocking later by just sending an invalid
   key. Beware of that if your code runs as part of another program (e.g.
   it's a DLL or a control panel applet) and you prefer to not share your
   authorization with the host program.
