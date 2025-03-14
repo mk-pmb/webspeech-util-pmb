@@ -2,9 +2,9 @@
 Automatic input
 ===============
 
-Currently there's no easy way to buy a license key, so you might want to try
-and automate one of the free input methods that ship with the default
-WebSpeech install:
+Currently there seems to be [no easy way to buy a license key](license-key.md),
+so you might want to try and automate one of the free input methods that ship
+with the default WebSpeech install:
 
 * The browser bar for MSIE, or
 * the speech preview provided in WebSpeech's control panel dialog.
